@@ -1,11 +1,14 @@
 import { NavLink } from "react-router-dom";
 
+import ThemeToggle from "./ThemeToggle";
+
 const Header = () => {
     const navLinkStyle = ({ isActive }) => ({
-        color: isActive ? "#2563eb" : "#274151",
-        TextDecoration: "none",
+        color: isActive ? "#2563eb" : "#374151",
+        textDecoration: "none",
         fontWeight: isActive ? "700" : "500",
     });
+
     return (
         <header
             style={{
@@ -13,8 +16,7 @@ const Header = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                borderBottom: "1px solid #e5e73b",
-                backgroundColor: "#ffffff",
+                borderBottom: "1px solid #ddd",
             }}
         >
             <h2>Mini Task Manager</h2>
@@ -23,13 +25,25 @@ const Header = () => {
                 style={{
                     display: "flex",
                     gap: "20px",
+                    alignItems: "center",
                 }}
             >
-                <NavLink to="/" style={navLinkStyle}>Home</NavLink>
-                <NavLink to="/about" style={navLinkStyle}>About</NavLink>
+                <NavLink to="/" style={navLinkStyle}>
+                    Home
+                </NavLink>
+
+                <NavLink to="/api-tasks" style={navLinkStyle}>
+                    API Tasks
+                </NavLink>
+
+                <NavLink to="/about" style={navLinkStyle}>
+                    About
+                </NavLink>
+
+                <ThemeToggle />
             </nav>
         </header>
     );
-
 };
+
 export default Header;
